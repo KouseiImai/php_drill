@@ -17,9 +17,9 @@ end
 <?php
 
   class Article {
-    public $author;
-    public $title;
-    public $content;
+    private $author;
+    private $title;
+    private $content;
 
     public function __construct($author, $title, $content)
     {
@@ -50,3 +50,22 @@ end
   print "本文：". $article->content(). "\n";
 
 ?>
+
+
+<!-- メモ -->
+<!-- 
+  ・Articleクラス内のプロパティ宣言時の「private」はアクセス権の設定であり、privateはクラス内からのみアクセス可能
+   という事になる。
+  →適切なアクセス権の設定をしておく事で、勝手に値を変更される事態を防ぐことができる。
+
+  ・$this ←「$this」変数は自身を指し示す為の特別な変数。メソッド内やそのクラスのプロパティやメソッドにアクセスするために使われる。
+
+  ・public function __construct  ←コンストラクタはオブジェクト生成時に実行されるメソッドRubyのinitializeメソッドに
+                                あたる。
+
+  ・$article = new Article("阿部", "Rubyの素晴らしさについて", "Awesome Ruby!");
+   →上記の記述にてArticleクラスのオブジェクトを生成。生成時に著者、タイトル、本文を引数として持たせる事で、Articleクラス
+    内のコンストラクタに値を渡している。
+
+
+ -->
